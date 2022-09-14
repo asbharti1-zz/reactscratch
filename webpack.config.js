@@ -16,6 +16,10 @@ const config = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.(sass|css|scss)$/,
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },
     ],
   },
   devServer: {
