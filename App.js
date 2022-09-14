@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Header from "./src/components/header/index";
 import Footer from "./src/components/footer/index";
+import AuthorQuiz from "./src/quiz";
 
 class App extends Component {
   render() {
-    const { name } = this.props;
+    const { name, a,b} = this.props;
     return (
       <div className="container">
         <Header />
         <div className="col-12">
-          <h1>Hello {name}</h1>
+          <AuthorQuiz a={a} b={b}></AuthorQuiz>
         </div>
         <Footer />
       </div>
