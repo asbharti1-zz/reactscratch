@@ -68,63 +68,80 @@ function createRowObject(row, previous) {
         
         let inner ={} 
         inner = CreateChObj(row[1],inner)  ;      
-       
+        /*
         if(row[2].toLowerCase() === "object"){
             o[row[0]] = inner;
         }else  if(row[2].toLowerCase() === "array"){
             o[row[0]] = [];
             o[row[0]].push(inner);
-        } 
+        } */
+        o = inner;
     }
     return o;
 }
 
-function mergeRows(){
-    
+const getNestedObject = (nestedObj, pathArr) => {
+    return pathArr.reduce((obj, key) =>
+        (obj && obj[key] !== 'undefined') ? obj[key] : undefined, nestedObj);
+}
+
+
+function processRows(rows, json){
+    if(json == undefined){
+        json ={};
+    }
+    let keys = undefined;
+    let row =undefined;
+    if(rows && rows.length>0){
+        keys =[];
+        row = rows[0];
+        keys = [row[0]].concat(row[1]);
+    }
+
+    if(rows.length ==1){        
+        var nObj = getNestedObject(json,keys);
+        console.log('Found -',nObj);
+        
+        if(nObj == undefined){            
+
+            if(row[2].toLowerCase() === "object"){
+                json[row[0]] = createRowObject(row,null);
+            }else  if(row[2].toLowerCase() === "array"){
+                json[row[0]] = [];
+                json[row[0]].push(createRowObject(row,null));
+            }
+        }else{
+            if(row[2].toLowerCase() === "object"){
+                nObj[row[0]] = createRowObject(row,null);
+            }else  if(row[2].toLowerCase() === "array"){
+                nObj[row[0]] = [];
+                nObj[row[0]].push(createRowObject(row,null));
+            }
+        }
+    }else{
+       
+        var nObj = getNestedObject(json,keys);
+
+        var nexts = rows.slice(1,rows.length);
+        if(nexts && nexts.length >0){
+            json[rows[0]]=processRows(nexts,nObj);
+        }
+    }
+    return nObj;
 }
 
 function processTable(row) {
     var o =[]
     const table = alignTable();
-        for (let i = 0; i < table.length; i++) {
-            const row = table[i];
-            var ob = createRowObject(row,null);
-            o.push(ob);
-        }
+    var json ={};
+
+    for (let i = 0; i < table.length; i++) {
+        const row = table[i];
+        //var ob = createRowObject(row,null);
+        //o.push(ob);
+    }
+    processRows(table,json);
+    console.log(json);
     return  o;
 }
 export {alignTable,processTable}
-
-
-/**
- * 
- * 
-    object = object ? object :{};
-    if(keys.length >1){
-        for (let i = 0; i < keys.length; i++) {
-            const key = keys[i];
-            object[key]={};
-            if(i === keys.length-1){
-                object[key]=createNameObject(key, i+"_");
-            }else{
-                object[key]=createNameObject([...keys].slice(1,keys.length),object)
-            }            
-        }
-    }else{
-        object[keys[0]]=createNameObject(keys[0], "_ii");
-    }
-
-
-    a: for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
-        if(i>0)break;
-        if(i === keys.length-1){
-            object[key] = createNameObject(key, i+"_");
-        }else{
-            
-            object[key] = createNestedObject(keys.pop(), object);
-            break a;
-        }
-        
-    }
- */

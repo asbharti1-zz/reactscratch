@@ -6,7 +6,7 @@ function Footer() {
       <footer className="page-footer font-small cyan darken-3">
         <div className="footer-copyright text-center py-3">
           © 2022 Copyright:
-          <a href="/"> Sayansi.com</a>
+          <a href="/"> CodeMonkey</a>
         </div>
       </footer>
     </div>
