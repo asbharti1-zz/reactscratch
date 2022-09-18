@@ -1,15 +1,15 @@
-import { Layout} from "antd";
+import { Layout } from "antd";
 
-const {Footer} = Layout;
+const { Footer } = Layout;
 
 import React from "react";
 
 function AppFooter() {
   return (
     <Layout>
-        <Footer className="footer-sns">
+      <Footer className="footer-sns" style={{ textAlign: "center" }}>
         Ant Design ©2022 Create by Sanjay
-        </Footer>
+      </Footer>
     </Layout>
   );
 }
