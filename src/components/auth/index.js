@@ -1,7 +1,11 @@
+import { Layout,Card} from "antd";
 import { Button, Checkbox, Form, Input ,Col, Divider, Row } from 'antd';
 import React, { useState } from 'react';
 import { loginWithEmailPass ,logoutEmailUser} from "../auth/fbeauth";
 
+import Employee from '../table';
+
+const {Content} = Layout;
 const Login = () => {
   const [loggedin,setLogggedIn] = useState(false);
   const onFinish = (values) => {
@@ -19,15 +23,27 @@ const Login = () => {
   return (
    
     <>{ !loggedin ?
+      
+        <Content>
+          <div>
+          <Row>
+            <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
+              &nbsp;
+            </Col>
+            <Col xs={{ span: 20, offset: 1 }} lg={{ span: 10, offset: 1 }}>
+            
     <div 
     style={{ width: "30%" , 
     minWidth:"30em",
     "alignContent":"left",
     "textAlign":"left"}}>
+      <div style={{textAlign:'center'}}>
+        <h3>Login</h3>
+      </div>
     <Form
       name="basic"
       labelCol={{
-        span: 10,
+        span: 5,
       }}
       wrapperCol={{
         span: 16,
@@ -69,7 +85,7 @@ const Login = () => {
         name="remember"
         valuePropName="checked"
         wrapperCol={{
-          offset: 8,
+          offset: 2,
           span: 16,
         }}
       >       
@@ -77,7 +93,7 @@ const Login = () => {
 
       <Form.Item
         wrapperCol={{
-          offset: 8,
+          offset: 2,
           span: 16,
         }}
       >
@@ -86,7 +102,17 @@ const Login = () => {
         </Button>
       </Form.Item>
     </Form>
-    </div> : ''
+    </div> 
+            </Col>
+            <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
+            &nbsp;
+          </Col>
+          </Row>
+                  
+          </div>
+        </Content>
+    
+    : <Employee/>
     }
     </>
   );

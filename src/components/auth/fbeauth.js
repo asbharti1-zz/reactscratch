@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword ,signOut} from "firebase/auth";
 
 const firebaseConfig = {
-
+ 
 };
 
 // Initialize Firebase
