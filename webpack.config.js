@@ -20,6 +20,11 @@ const config = {
         test: /\.(sass|css|scss)$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
+      {
+        test: /\.(js|jsx|.cjs)$/,
+        enforce: "pre",
+        use: ["source-map-loader"],
+      },
     ],
   },
   devServer: {

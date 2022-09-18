@@ -1,0 +1,13 @@
+.ant-layout-sider-children .logo {
+    float: left;
+   padding: .5rem;
+   min-width: 6rem;
+    margin: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(24, 144,255);
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    */border: 200;
+   
+  }
+  

@@ -1,16 +1,17 @@
+import { Layout} from "antd";
+
+const {Footer} = Layout;
+
 import React from "react";
 
-function Footer() {
+function AppFooter() {
   return (
-    <div>
-      <footer className="page-footer font-small cyan darken-3">
-        <div className="footer-copyright text-center py-3">
-          © 2022 Copyright:
-          <a href="/"> CodeMonkey</a>
-        </div>
-      </footer>
-    </div>
+    <Layout>
+        <Footer className="footer-sns">
+        Ant Design ©2022 Create by Sanjay
+        </Footer>
+    </Layout>
   );
 }
 
-export default Footer;
+export default AppFooter;

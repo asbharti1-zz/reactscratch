@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/asbharti1/developmet#readme",
   "dependencies": {
+    "antd": "^4.23.1",
     "bootstrap": "^5.2.1",
     "firebase": "^9.10.0",
     "react": "^18.2.0",
@@ -38,6 +39,7 @@
     "@testing-library/user-event": "^14.4.3",
     "autoprefixer": "^10.4.10",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^29.0.3",
     "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
@@ -50,6 +52,7 @@
     "postcss-preset-env": "^7.8.1",
     "prop-types": "^15.8.1",
     "sass-loader": "^13.0.2",
+    "source-map-loader": "^4.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
