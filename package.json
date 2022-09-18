@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/asbharti1/developmet#readme",
   "dependencies": {
+    "antd": "^4.23.2",
     "bootstrap": "^5.2.1",
     "firebase": "^9.10.0",
     "react": "^18.2.0",

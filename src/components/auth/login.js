@@ -87,4 +87,4 @@ class LoginUi extends Component{
     
 
 }
-export {LoginUi};
+export default LoginUi;
