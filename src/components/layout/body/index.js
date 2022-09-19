@@ -24,6 +24,7 @@ import {
   useParams,
   Routes
 } from "react-router-dom";
+import Employee from "../../../pages/sampletable";
 
 function AppContent() {
   return (
@@ -50,6 +51,7 @@ function AppContent() {
                   <Route exact path="/development"  element={<DevelopmentPage />}></Route>
                   <Route exact path="/analysis"  element={<DataAnalysis />}></Route>
                   <Route exact path="/consult"  element={<Consulting />}></Route>
+                  <Route exact path="/employee"  element={<Employee />}></Route>
                 </Routes>
              
             </Card>

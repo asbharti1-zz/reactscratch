@@ -1,119 +1,117 @@
-import { Layout,Card} from "antd";
-import { Button, Checkbox, Form, Input ,Col, Divider, Row } from 'antd';
-import React, { useState } from 'react';
-import { loginWithEmailPass ,logoutEmailUser} from "../auth/fbeauth";
+import { Layout, Card } from "antd";
+import { Button, Checkbox, Form, Input, Col, Divider, Row } from "antd";
+import React, { useState } from "react";
+import { loginWithEmailPass, logoutEmailUser } from "../auth/fbeauth";
 
-import Employee from '../table';
+const FormItem = Form.Item;
 
-const {Content} = Layout;
+const { Content } = Layout;
 const Login = () => {
-  const [loggedin,setLogggedIn] = useState(false);
+  const [loggedin, setLogggedIn] = useState(false);
   const onFinish = (values) => {
-    console.log(values)    
+    console.log(values);
     loginWithEmailPass(values.username, values.password);
-    console.log('Success:', values);
+    console.log("Success:", values);
     setLogggedIn(true);
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log("Failed:", errorInfo);
   };
-  
- 
+
   return (
-   
-    <>{ !loggedin ?
-      
+    <>
+      {!loggedin ? (
         <Content>
           <div>
-          <Row>
-            <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
-              &nbsp;
-            </Col>
-            <Col xs={{ span: 20, offset: 1 }} lg={{ span: 10, offset: 1 }}>
-            
-    <div 
-    style={{ width: "30%" , 
-    minWidth:"30em",
-    "alignContent":"left",
-    "textAlign":"left"}}>
-      <div style={{textAlign:'center'}}>
-        <h3>Login</h3>
-      </div>
-    <Form
-      name="basic"
-      labelCol={{
-        span: 5,
-      }}
-      wrapperCol={{
-        span: 16,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item 
-        label="Username"
-        name="username"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your username!',
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+            <Row>
+              <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
+                &nbsp;
+              </Col>
+              <Col xs={{ span: 20, offset: 1 }} lg={{ span: 10, offset: 1 }}>
+                <div
+                  style={{
+                    width: "30%",
+                    minWidth: "30em",
+                    alignContent: "left",
+                    textAlign: "left",
+                  }}
+                >
+                  <div style={{ textAlign: "center" }}>
+                    <h3>Login</h3>
+                  </div>
+                  <Form
+                    name="basic"
+                    labelCol={{
+                      span: 5,
+                    }}
+                    wrapperCol={{
+                      span: 16,
+                    }}
+                    initialValues={{
+                      remember: true,
+                    }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                  >
+                    <FormItem
+                      label="Username"
+                      name="username"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your username!",
+                        },
+                      ]}
+                    >
+                      <Input />
+                    </FormItem>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[
-          {
-            required: true,
-            message: 'Please input your password!',
-          },
-        ]}      
-      >
-        <Input.Password />
-      </Form.Item>
+                    <FormItem
+                      label="Password"
+                      name="password"
+                      rules={[
+                        {
+                          required: true,
+                          message: "Please input your password!",
+                        },
+                      ]}
+                    >
+                      <Input.Password />
+                    </FormItem>
 
-      <Form.Item
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{
-          offset: 2,
-          span: 16,
-        }}
-      >       
-      </Form.Item>
+                    <FormItem
+                      name="remember"
+                      valuePropName="checked"
+                      wrapperCol={{
+                        offset: 2,
+                        span: 16,
+                      }}
+                    ></FormItem>
 
-      <Form.Item
-        wrapperCol={{
-          offset: 2,
-          span: 16,
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-    </div> 
-            </Col>
-            <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
-            &nbsp;
-          </Col>
-          </Row>
-                  
+                    <FormItem
+                      wrapperCol={{
+                        offset: 2,
+                        span: 16,
+                      }}
+                    >
+                      <Button type="primary" htmlType="submit">
+                        Submit
+                      </Button>
+                    </FormItem>
+                  </Form>
+                </div>
+              </Col>
+              <Col xs={{ span: 2, offset: 1 }} lg={{ span: 2, offset: 1 }}>
+                &nbsp;
+              </Col>
+            </Row>
           </div>
         </Content>
-    
-    : <Employee/>
-    }
+      ) : (
+        <p>User Logged In successful!</p>
+      )}
     </>
   );
 };
