@@ -3,9 +3,14 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const firebaseConfig = {
- 
+  apiKey: "AIzaSyAIcHxna0G8fpzu6SFZ0tUuZ5gQgVAFnNw",
+  authDomain: "localhost-auth-9dfbe.firebaseapp.com",
+  projectId: "localhost-auth-9dfbe",
+  storageBucket: "localhost-auth-9dfbe.appspot.com",
+  messagingSenderId: "696634949309",
+  appId: "1:696634949309:web:3d2d7d168c471c1acfc1d4",
+  measurementId: "G-5MC930DHLC"
 };
-
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebase);

@@ -25,6 +25,7 @@ import {
   Routes
 } from "react-router-dom";
 import Employee from "../../../pages/sampletable";
+import AuthorQuiz from "../../../quiz";
 
 function AppContent() {
   return (
@@ -34,14 +35,16 @@ function AppContent() {
         overflow: 'auto',
         width: '88vw'}}>
           <div
-          className="site-layout-background"
+          className=""
           style={{            
-            textAlign: 'center',
+            backgroundColor: '#FFF',
           }}
+          
         >
+          {/* site-layout-background */}
           <Row>
           <Col lg={{ span: 12, offset: 0 }}>
-            <Card>
+           
               
                 <Routes>
                  
@@ -52,9 +55,10 @@ function AppContent() {
                   <Route exact path="/analysis"  element={<DataAnalysis />}></Route>
                   <Route exact path="/consult"  element={<Consulting />}></Route>
                   <Route exact path="/employee"  element={<Employee />}></Route>
+                  <Route exact path="/quiz"  element={<AuthorQuiz />}></Route>
                 </Routes>
              
-            </Card>
+            
           </Col>
          
           </Row>

@@ -7,14 +7,15 @@ import LeftSlider from "../layout/left-slider";
 
 
 
-function AppLayout() {
+function AppLayout({...props}) {
+  console.log(props);
   return (
     <Layout>
       <LeftSlider/>
       <Layout >
         <AppHeader />
           <Layout style={{ padding: '24px' }}>
-            <AppContent/>
+            <AppContent {...props}/>
           </Layout>
         <AppFooter/>
       </Layout>

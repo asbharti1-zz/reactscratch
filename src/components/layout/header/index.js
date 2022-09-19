@@ -14,12 +14,19 @@ function AppHeader() {
     navigate("/employee", {replace: true});    
     
   }
+  const handleQuizClickEvent=(event) =>{
+    console.log(event);
+    console.log(event.key);
+    navigate("/quiz", {replace: true});    
+    
+  }
   return (
     <Header>
       <div className="row">
         <div className="col-6">
           <Menu theme="dark" mode="horizontal" style={{ width: "50vw" }}>
             <Menu.Item key={"employee"} onClick={handleSampleAPIClickEvent}>Sample Data API</Menu.Item>
+            <Menu.Item key={"quiz"} onClick={handleQuizClickEvent}>Author Quiz</Menu.Item>
           </Menu>
         </div>
         <div className="col-2" style={{ marginLeft: "300px" }}>

@@ -2,22 +2,29 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 import { processTable} from '../jsonshema';
+import Footer from './footer';
+import Continue from './continue';
+import Turn from './turn';
+import Hero from './hero';
 function Sum(props) {
     return (
         <h1> Author  Quiz {props.a} +{props.b} = {props.a +props.b}</h1>
     );
 }
 
+
 Sum.propTypes = {
     a: PropTypes.number.isRequired,
     b:PropTypes.number.isRequired
 }
 
-function AuthorQuiz( props) {
-  console.log(JSON.stringify(processTable()));
+function AuthorQuiz( {...props}) {
   return (
-    <div className='row'>
-        <Sum a={props.a} b={props.b}/>
+    <div className='container-fluid'>
+      <Hero/>
+      <Turn/>
+      <Continue/>
+      <Footer/>
     </div>
   )
 }

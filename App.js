@@ -5,16 +5,16 @@ import AppLayout from "./src/components/layout";
 import "./app.css"
 
 
-class App extends Component {
-  render() {
+const App =({...props}) => {
+    console.log(props);
     return (
       <>
       <Router>
-        <AppLayout/>
+        <AppLayout {...props}/>
       </Router>
       </>
     );
-  }
+ 
 }
 
 export default App;
