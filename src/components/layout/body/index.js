@@ -7,10 +7,24 @@ import { Layout,Card} from "antd";
 const {Content} = Layout;
 
 import React from "react";
-
-import LoginUi from "../../auth/login"
 import Login from "../../auth"
 import { Col, Row } from 'antd';
+import Aboutus from "../../../pages/aboutus"
+import Contactus from "../../../pages/contactus"
+import DevelopmentPage from "../../../pages/development"
+import DataAnalysis from "../../../pages/analysis";
+import Consulting from "../../../pages/consulting";
+
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+  Routes
+} from "react-router-dom";
+
 function AppContent() {
   return (
     
@@ -27,7 +41,17 @@ function AppContent() {
           <Row>
           <Col lg={{ span: 12, offset: 0 }}>
             <Card>
-            <Login/>
+              
+                <Routes>
+                 
+                  <Route path="/aboutus" element={<Aboutus />}></Route>
+                  <Route path="/contactus" element={<Contactus />}></Route>
+                  <Route exact path="/"  element={<Login />}></Route>
+                  <Route exact path="/development"  element={<DevelopmentPage />}></Route>
+                  <Route exact path="/analysis"  element={<DataAnalysis />}></Route>
+                  <Route exact path="/consult"  element={<Consulting />}></Route>
+                </Routes>
+             
             </Card>
           </Col>
          

@@ -4,9 +4,14 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword ,signOut} from "firebase/auth";
 
 const firebaseConfig = {
- 
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
-
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebase);

@@ -6,24 +6,13 @@ const {Sider} = Layout;
 import React, { useState } from "react";
 
 import "./style.css"
-const items = [
-    { label: 'Home', key: 'home'}, // remember to pass the key prop
-    { label: 'About Us', key: 'aboutus' }, 
-    {
-      label: 'Services',
-      key: 'submenu',
-      items: [
-        { label: 'Development', key: 'appdev' },
-        { label: 'Data Analysis', key: 'analys' },
-        { label: 'Consultation', key: 'consult' }]
-    },
-    { label: 'Contact Us', key: 'contact' },
-    { label: 'Employee Login', key: 'login' }
-  ];
-  const handleMenuClickEvent =(event) =>{
-    console.log(event);
-  }
+import { useNavigate } from "react-router-dom";
 
+
+
+
+
+  
  const usr = getUserInfo();
  
  const handleCollablse =(value) =>{
@@ -31,6 +20,33 @@ const items = [
     //setCollapsed(value);
  }
 function LeftSlider() {
+  let navigate = useNavigate();
+  const handleMenuClickEvent =(event) =>{
+    console.log(event);
+    console.log(event.key);
+    
+    let key = event.key;
+    if(key === "home" || key ==="login"){
+      navigate("/", {replace: true});
+    }else{
+      navigate("/"+key, {replace: true});
+    }
+    
+  }
+  const items = [
+    { label: 'Home', key: 'home',  onClick: handleMenuClickEvent}, // remember to pass the key prop
+    { label: 'About Us', key: 'aboutus' , onClick: handleMenuClickEvent}, 
+    {
+      label: 'Services',
+      key: 'submenu',
+      children: [
+        { label: 'Development', key: 'development' , onClick: handleMenuClickEvent},
+        { label: 'Data Analysis', key: 'analysis' , onClick: handleMenuClickEvent},
+        { label: 'Consulting', key: 'consult' , onClick: handleMenuClickEvent}]
+    },
+    { label: 'Contact Us', key: 'contactus' , onClick: handleMenuClickEvent},
+    { label: 'Employee Login', key: 'login', onClick: handleMenuClickEvent }
+  ];
   const [collapsed, setCollapsed] = useState(false);
   console.log("User in Slider",usr);
   return (
