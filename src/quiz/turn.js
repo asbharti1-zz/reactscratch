@@ -1,6 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+
 import AuthorQuiz from '.'
 import { booksContext } from '../../'
+
 
 function Book({title , onClick}){
     return (
@@ -11,12 +13,10 @@ function Book({title , onClick}){
 }
 
 
-function Turn( {author,books,highlight}) {
-  const data = useContext(booksContext);
-  highlight = data.highlight;
-  console.log(highlight);
-
-  const quizd = {...data.turnData};
+function Turn( {author,books}) {
+    const [highlight,setHighlight] = useState('')
+    const {turnData} = useContext(booksContext);
+    const quizd = {...turnData};
 
     const highlightToBgColor = (highlight) =>{
         const mapping ={
@@ -29,16 +29,20 @@ function Turn( {author,books,highlight}) {
     }
 
     const onAnswerSelected = (answer) =>{
-        const isCorrect = data.turnData.author.books.some((book) => book === answer);
+        const isCorrect = turnData.author.books.some((book) => book === answer);
         console.log(isCorrect)
+        let highlight= '';
         if(isCorrect){
             highlight = 'correct'
         }else{
             highlight = 'wrong'
         }
+        setHighlight(highlight);        
+
     }
 
   console.log(quizd);
+ 
   return (
     <div className='row turn' style={{backgroundColor : highlightToBgColor(highlight)}}>
         <div className='col-4 offset-1'>

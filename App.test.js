@@ -1,5 +1,5 @@
 
-import { screen , render } from "@testing-library/react";
+import { render, fireEvent } from 'test-utils';
 import App from "./App"
 
 

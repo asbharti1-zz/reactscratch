@@ -3,12 +3,16 @@ const config = {
     collectCoverage: true,
     //collectCoverageFrom: ['src/**/*.{js,jsx}'],
     coverageDirectory: 'coverage',
-    testEnvironment: 'jsdom',//'jsdom',
+    testEnvironment: 'jest-environment-jsdom',//'jsdom',
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     transform: {
       "^.+\\.(ts|tsx|js|cjs)$": "babel-jest"
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
+    moduleDirectories: [
+      'node_modules',
+      'src'
+    ]
     
   };
   
